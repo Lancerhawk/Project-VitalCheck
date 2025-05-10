@@ -13,7 +13,7 @@ function Signup() {
         email: '',
         password: '',
         confirmPassword: '',
-        role: 'Choose your role'
+        role: 'Choose your role'            
     });
 
     const [errors, setErrors] = useState({});
@@ -45,7 +45,6 @@ function Signup() {
             [name]: value
         }));
 
-        // Clear errors when user starts typing
         if (errors[name]) {
             setErrors(prev => ({
                 ...prev,
@@ -58,11 +57,11 @@ function Signup() {
         e.preventDefault();
         const newErrors = {};
 
-        // Validation checks
         if (!formData.username.trim()) {
             newErrors.username = 'Username is required';
+        }if (!formData.name.trim()) {
+            newErrors.name = 'name is required';
         }
-
         if (!formData.email.trim()) {
             newErrors.email = 'Email is required';
         } else if (!/\S+@\S+\.\S+/.test(formData.email)) {
@@ -88,9 +87,7 @@ function Signup() {
             return;
         }
 
-        // Handle signup logic here
         console.log('Signup attempt:', formData);
-        // Navigate to login page after successful signup
         navigate('/login');
     };
 
@@ -102,7 +99,20 @@ function Signup() {
                     <p>Create your healthcare account</p>
                 </div>
                 <form onSubmit={handleSubmit} className='signup-form'>
-                    <div className='form-group'>
+                    <div className='form-group-signup'>
+
+                    <label htmlFor='name'>Name</label>
+                        <input
+                            type='text'
+                            id='name'
+                            name='name'
+                            value={formData.name}
+                            onChange={handleInputChange}
+                            placeholder='Enter your Real Name'
+                        />
+                        {errors.username && <span className='error-message'>{errors.username}</span>}
+                    </div><div className='form-group-signup'>
+
                         <label htmlFor='username'>Username</label>
                         <input
                             type='text'
@@ -115,7 +125,7 @@ function Signup() {
                         {errors.username && <span className='error-message'>{errors.username}</span>}
                     </div>
 
-                    <div className='form-group'>
+                    <div className='form-group-signup'>
                         <label htmlFor='email'>Email</label>
                         <input
                             type='email'
@@ -128,7 +138,7 @@ function Signup() {
                         {errors.email && <span className='error-message'>{errors.email}</span>}
                     </div>
 
-                    <div className='form-group'>
+                    <div className='form-group-signup'>
                         <label htmlFor='password'>Password</label>
                         <input
                             type={showPassword ? 'text' : 'password'}
@@ -166,7 +176,7 @@ function Signup() {
                         {errors.password && <span className='error-message'>{errors.password}</span>}
                     </div>
 
-                    <div className='form-group'>
+                    <div className='form-group-signup'>
                         <label htmlFor='confirmPassword'>Confirm Password</label>
                         <input
                             type={showConfirmPassword ? 'text' : 'password'}
@@ -186,7 +196,7 @@ function Signup() {
                         {errors.confirmPassword && <span className='error-message'>{errors.confirmPassword}</span>}
                     </div>
 
-                    <div className='form-group'>
+                    <div className='form-group-signup'>
                         <label htmlFor='role'>Role</label>
                         <select
                             id='role'
@@ -196,9 +206,9 @@ function Signup() {
                             className='role-select'
                         >
                             <option value='Choose your role' disabled>Choose your role</option>
-                            <option value='personal'>Personal</option>
-                            <option value='doctor'>Doctor</option>
-                            <option value='student'>Learner</option>
+                            <option value='p'>Personal</option>
+                            <option value='d'>Doctor</option>
+                            <option value='s'>Learner</option>
                         </select>
                         {errors.role && <span className='error-message'>{errors.role}</span>}
                     </div>

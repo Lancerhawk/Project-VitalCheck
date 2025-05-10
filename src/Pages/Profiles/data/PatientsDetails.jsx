@@ -4,6 +4,8 @@ export const patients = [
     { 
         id: 'P001', 
         name: 'John Doe', 
+        email: 'john.doe@example.com',
+        password: 'hashed_password_1', // In real application, this would be properly hashed
         age: 45, 
         disease: 'Hypertension', 
         exercises: ['Walking', 'Swimming'], 
@@ -16,6 +18,8 @@ export const patients = [
     { 
         id: 'P002', 
         name: 'Jane Smith', 
+        email: 'jane.smith@example.com',
+        password: 'hashed_password_2', // In real application, this would be properly hashed
         age: 38, 
         disease: 'Diabetes', 
         exercises: ['Cycling', 'Yoga'], 
@@ -28,6 +32,8 @@ export const patients = [
     { 
         id: 'P003', 
         name: 'Mike Johnson', 
+        email: 'mike.johnson@example.com',
+        password: 'hashed_password_3', // In real application, this would be properly hashed
         age: 52, 
         disease: 'Arthritis', 
         exercises: ['Swimming', 'Stretching'], 
@@ -40,6 +46,8 @@ export const patients = [
     { 
         id: 'P004', 
         name: 'Sarah Williams', 
+        email: 'sarah.w@example.com',
+        password: 'hashed_password_4', // In real application, this would be properly hashed
         age: 41, 
         disease: 'Asthma', 
         exercises: ['Light Jogging', 'Breathing Exercises'], 
@@ -52,6 +60,8 @@ export const patients = [
     { 
         id: 'P005', 
         name: 'Sarah Williams', 
+        email: 'sarah.w2@example.com',
+        password: 'hashed_password_5', // In real application, this would be properly hashed
         age: 41, 
         disease: 'Asthma', 
         exercises: ['Light Jogging', 'Breathing Exercises'], 
@@ -66,7 +76,7 @@ export const patients = [
 export const payments = [
     { 
         id: 'P001', 
-        name: 'John Doe', 
+        name: 'Tester 1', 
         status: 'Paid', 
         amount: 150, 
         date: '2024-01-15', 
@@ -77,7 +87,7 @@ export const payments = [
     },
     { 
         id: 'P002', 
-        name: 'Jane Smith', 
+        name: 'Tester 2', 
         status: 'Due', 
         amount: 200, 
         daysOverdue: 5, 
@@ -88,7 +98,7 @@ export const payments = [
     },
     { 
         id: 'P003', 
-        name: 'Mike Johnson', 
+        name: 'Tester 3', 
         status: 'Paid', 
         amount: 180, 
         date: '2024-01-20', 
@@ -99,7 +109,7 @@ export const payments = [
     },
     { 
         id: 'P004', 
-        name: 'Sarah Williams', 
+        name: 'Tester 4', 
         status: 'Overdue', 
         amount: 160, 
         daysOverdue: 10, 
@@ -114,7 +124,7 @@ export const appointments = [
     { 
         id: 'A001', 
         date: new Date(), 
-        patient: 'John Doe', 
+        patient: 'Tester 1', 
         time: '10:00 AM', 
         type: 'Regular Checkup', 
         duration: '30 mins', 
@@ -125,7 +135,7 @@ export const appointments = [
     { 
         id: 'A002', 
         date: new Date(), 
-        patient: 'Jane Smith', 
+        patient: 'Tester 2', 
         time: '11:30 AM', 
         type: 'Follow-up', 
         duration: '45 mins', 
@@ -136,7 +146,7 @@ export const appointments = [
     { 
         id: 'A003', 
         date: new Date(), 
-        patient: 'Mike Johnson', 
+        patient: 'Tester 3', 
         time: '2:00 PM', 
         type: 'Treatment', 
         duration: '60 mins', 
@@ -147,7 +157,7 @@ export const appointments = [
     { 
         id: 'A004', 
         date: new Date(), 
-        patient: 'Sarah Williams', 
+        patient: 'Tester 4', 
         time: '3:30 PM', 
         type: 'Emergency', 
         duration: '45 mins', 
@@ -158,7 +168,7 @@ export const appointments = [
     { 
         id: 'A005', 
         date: new Date(), 
-        patient: 'Robert Brown', 
+        patient: 'Tester 5', 
         time: '4:30 PM', 
         type: 'New Patient', 
         duration: '60 mins', 
@@ -167,3 +177,10 @@ export const appointments = [
         room: 'Room 101' 
     }
 ];
+
+export const patientsreports = [
+    { id: 'P001', name: 'Tester 1', email: 'tester1.hi@example.com', age: 45, gender: 'Male', registrationDate: '2023-10-15', lastVisit: '2024-03-22' },
+    { id: 'P002', name: 'Tester 2', email: 'tester2.hi@example.com', age: 32, gender: 'Female', registrationDate: '2023-11-05', lastVisit: '2024-05-01' },
+    { id: 'P003', name: 'Tester 3', email: 'tester3.hi@example.com', age: 58, gender: 'Male', registrationDate: '2023-12-18', lastVisit: '2024-04-12' },
+    { id: 'P004', name: 'Tester 4', email: 'tester4.hi@example.com', age: 27, gender: 'Female', registrationDate: '2024-01-09', lastVisit: '2024-05-10' },
+  ];

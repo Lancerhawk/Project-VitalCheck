@@ -1,11 +1,13 @@
 import { useState, useEffect } from 'react';
-import { NavLink, Link } from 'react-router-dom';
+import { NavLink, Link, useLocation } from 'react-router-dom';
 import './Navbar.css';
-import { FaBars, FaTimes } from 'react-icons/fa';
+import { FaBars, FaTimes, FaUser } from 'react-icons/fa';
 
 const Navbar = () => {
   const [theme, setTheme] = useState('light');
   const [isOpen, setIsOpen] = useState(false);
+  const location = useLocation();
+  const isDashboard = location.pathname.includes('/dashboard');
 
   useEffect(() => {
     document.documentElement.setAttribute('data-theme', theme);
@@ -46,8 +48,16 @@ const Navbar = () => {
             >
               {theme === 'light' ? '🌙' : '☀️'}
             </button>
-            <Link to="/login" className="btn btn-secondary" onClick={() => setIsOpen(false)}>Login</Link>
-            <Link to="/signup" className="btn btn-primary" onClick={() => setIsOpen(false)}>Sign Up</Link>
+            {isDashboard ? (
+              <div className="user-icon">
+                <FaUser size={24} />
+              </div>
+            ) : (
+              <>
+                <Link to="/login" className="btn btn-secondary" onClick={() => setIsOpen(false)}>Login</Link>
+                <Link to="/signup" className="btn btn-primary" onClick={() => setIsOpen(false)}>Sign Up</Link>
+              </>
+            )}
           </div>
         </div>
         

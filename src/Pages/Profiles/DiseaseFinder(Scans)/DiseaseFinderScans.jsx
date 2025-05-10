@@ -1,10 +1,15 @@
-import { useState } from 'react';
+import React, { useState } from 'react';
 import './Reportss.css';
 
 function DiseaseFinderScans() {
   const [isDragging, setIsDragging] = useState(false);
   const [scanType, setScanType] = useState('');
   const [bodyPart, setBodyPart] = useState('');
+  const [loading, setLoading] = useState(false);
+  const [prediction, setPrediction] = useState(null);
+  const [error, setError] = useState(null);
+  const [selectedFile, setSelectedFile] = useState(null);
+  const [previewUrl, setPreviewUrl] = useState(null);
 
   const handleDragOver = (e) => {
     e.preventDefault();
@@ -15,18 +20,70 @@ function DiseaseFinderScans() {
     setIsDragging(false);
   };
 
+  const handleImageUpload = (file) => {
+    if (!file) return;
+    if (!file.type.startsWith('image/')) {
+      setError('Please upload an image file');
+      return;
+    }
+
+    if (scanType !== 'mri' || bodyPart !== 'brain') {
+      setError('Currently, only Brain MRI scans are supported. Other scan types will be available soon.');
+      return;
+    }
+
+    setError(null);
+    setPrediction(null);
+    setSelectedFile(file);
+
+    const reader = new FileReader();
+    reader.onloadend = () => {
+      setPreviewUrl(reader.result);
+    };
+    reader.readAsDataURL(file);
+  };
+
+  const handleSubmit = async () => {
+    if (!selectedFile) {
+      setError('Please select an image first');
+      return;
+    }
+
+    setLoading(true);
+    setError(null);
+    setPrediction(null);
+
+    const formData = new FormData();
+    formData.append('image', selectedFile);
+
+    try {
+      const response = await fetch('http://localhost:5000/predict', {
+        method: 'POST',
+        body: formData,
+      });
+
+      const data = await response.json();
+      if (data.error) {
+        throw new Error(data.error);
+      }
+      setPrediction(data);
+    } catch (err) {
+      setError(err.message || 'Failed to analyze the image');
+    } finally {
+      setLoading(false);
+    }
+  };
+
   const handleDrop = (e) => {
     e.preventDefault();
     setIsDragging(false);
-    const files = e.dataTransfer.files;
-    // Handle file upload logic here
-    console.log('Files dropped:', files);
+    const file = e.dataTransfer.files[0];
+    handleImageUpload(file);
   };
 
   const handleFileSelect = (e) => {
-    const files = e.target.files;
-    // Handle file upload logic here
-    console.log('Files selected:', files);
+    const file = e.target.files[0];
+    handleImageUpload(file);
   };
 
   return (
@@ -73,13 +130,15 @@ function DiseaseFinderScans() {
 
             <div className="form-group">
               <label htmlFor="bodyPart">Body Part/Region</label>
-              <input
-                type="text"
-                id="bodyPart"
+              <select
+                id="scanType"
                 value={bodyPart}
                 onChange={(e) => setBodyPart(e.target.value)}
-                placeholder="e.g., Brain, Chest, Knee"
-              />
+              >
+                <option value="">Select Body type</option>
+                <option value="brain">Brain</option>
+                <option value="chest">Chest</option>
+              </select>
             </div>
           </div>
 
@@ -89,10 +148,70 @@ function DiseaseFinderScans() {
             onDragLeave={handleDragLeave}
             onDrop={handleDrop}
           >
-            <div className='upload-icon'>🔍</div>
-            <p>Drag and drop your image, or <label className='browse-label'>browse<input type='file' onChange={handleFileSelect} accept='.jpg,.png,.jpeg,.dicom' /></label></p>
-            <p className='file-types'>.jpg, .png, .jpeg, .dicom up to 20MB</p>
+            {previewUrl ? (
+              <div className='preview-container'>
+                <img src={previewUrl} alt='Scan preview' className='scan-preview' />
+                <button className='remove-preview' onClick={() => {
+                  setPreviewUrl(null);
+                  setSelectedFile(null);
+                  setPrediction(null);
+                }}>✖</button>
+              </div>
+            ) : (
+              <>
+                <div className='upload-icon'>🔍</div>
+                <p>Drag and drop your Scans, or <label className='browse-label'>browse<input type='file' onChange={handleFileSelect} accept='.jpg,.png,.jpeg,.dicom' /></label></p>
+                <p className='file-types'>.jpg, .png, .jpeg, .dicom up to 20MB</p>
+              </>
+            )}
           </div>
+
+          {previewUrl && !prediction && !loading && (
+            <button 
+              className='submit-button' 
+              onClick={handleSubmit}
+              disabled={!selectedFile}
+            >
+              Analyze Scan
+            </button>
+          )}
+
+          {loading && (
+            <div className='analysis-status'>
+              <div className='loading-spinner'></div>
+              <p>Analyzing your scan...</p>
+            </div>
+          )}
+
+          {error && (
+            <div className='error-message'>
+              <p>❌ {error}</p>
+            </div>
+          )}
+
+          {prediction && (
+            <div className='prediction-results'>
+              <h3>Analysis Results 🎯</h3>
+              <div className='result-card'>
+                <div className='result-header'>
+                  <h4>Prediction</h4>
+                </div>
+                <div className='result-content'>
+                  <p className='prediction-class'>
+                    <strong>Detected Condition:</strong> {prediction.class.charAt(0).toUpperCase() + prediction.class.slice(1)}
+                  </p>
+                  <p className='prediction-confidence'>
+                    <strong>Confidence Score:</strong> {(prediction.confidence * 100).toFixed(2)}%
+                  </p>
+                </div>
+                <div className='result-footer'>
+                  <p className='result-note'>
+                    ⚠️ This is an AI-assisted analysis. Please consult with a healthcare professional for proper medical diagnosis.
+                  </p>
+                </div>
+              </div>
+            </div>
+          )}
         </div>
 
         <div className='supported-types'>

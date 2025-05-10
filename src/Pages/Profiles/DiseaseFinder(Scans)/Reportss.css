@@ -14,6 +14,11 @@
     }
   }
 
+  .prediction-results{
+    color: black;
+    text-align: center;
+  }
+
 .reportss-header {
   text-align: center;
   margin-bottom: 3rem;
@@ -103,12 +108,78 @@
 }
 
 .upload-area {
-  border: 2px dashed #ddd;
-  border-radius: 10px;
+  border: 2px dashed #ccc;
   padding: 2rem;
   text-align: center;
-  transition: all 0.3s ease;
+  border-radius: 8px;
+  background-color: #f8f9fa;
+  margin: 1rem 0;
+  transition: border-color 0.3s ease;
+  min-height: 200px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.preview-container {
+  position: relative;
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+}
+
+.scan-preview {
+  width: 100%;
+  height: auto;
+  max-height: 400px;
+  object-fit: contain;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.remove-preview {
+  position: absolute;
+  top: -10px;
+  right: -10px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background-color: #ff4444;
+  color: white;
+  border: none;
   cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 14px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.remove-preview:hover {
+  background-color: #cc0000;
+}
+
+.submit-button {
+  background-color: #007bff;
+  color: white;
+  border: none;
+  padding: 12px 24px;
+  border-radius: 6px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 1rem;
+  transition: background-color 0.3s ease;
+}
+
+.submit-button:hover {
+  background-color: #0056b3;
+}
+
+.submit-button:disabled {
+  background-color: #ccc;
+  cursor: not-allowed;
 }
 
 .upload-area.dragging {

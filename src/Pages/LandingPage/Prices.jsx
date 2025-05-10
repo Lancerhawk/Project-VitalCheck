@@ -12,8 +12,8 @@ function Prices() {
                     <div className="card-header">
                         <h3>Basic</h3>
                         <div className="price">
-                            <span className="currency">$</span>
                             <span className="amount">29</span>
+                            <span className="currency">rs</span>
                             <span className="period">/month</span>
                         </div>
                     </div>
@@ -31,8 +31,8 @@ function Prices() {
                     <div className="card-header">
                         <h3>Professional</h3>
                         <div className="price">
-                            <span className="currency">$</span>
                             <span className="amount">79</span>
+                            <span className="currency">rs</span>
                             <span className="period">/month</span>
                         </div>
                     </div>
@@ -50,8 +50,9 @@ function Prices() {
                     <div className="card-header">
                         <h3>Enterprise</h3>
                         <div className="price">
-                            <span className="currency">$</span>
+                            
                             <span className="amount">199</span>
+                            <span className="currency">rs</span>
                             <span className="period">/month</span>
                         </div>
                     </div>

@@ -616,8 +616,6 @@ input, textarea {
     border-radius: 15px;
     transition: transform 0.3s ease;
     flex-direction: column;
-    /* align-items: center; */
-    /* text-align: center; */
 }
 
 .info-icon {
@@ -625,7 +623,6 @@ input, textarea {
     margin-bottom: 1rem;
 }
 
-/* Responsive Design */
 @media (max-width: 768px) {
     .hero-content-wrapper {
         grid-template-columns: 1fr;

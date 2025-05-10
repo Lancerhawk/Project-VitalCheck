@@ -19,13 +19,11 @@ function SkinDiseaseFinder() {
     e.preventDefault();
     setIsDragging(false);
     const files = e.dataTransfer.files;
-    // Handle file upload logic here
     console.log('Files dropped:', files);
   };
 
   const handleFileSelect = (e) => {
     const files = e.target.files;
-    // Handle file upload logic here
     console.log('Files selected:', files);
   };
 

@@ -1,24 +1,16 @@
 import { useState } from 'react';
 import './PatientReports.css';
+import { patientsreports } from '../data/PatientsDetails';
 
 function PatientReports() {
   const [searchQuery, setSearchQuery] = useState('');
 
-  // Sample data - in a real app, this would come from an API
-  const patients = [
-    { id: 'P001', name: 'John Smith', email: 'john.smith@example.com', age: 45, gender: 'Male', registrationDate: '2023-10-15', lastVisit: '2024-03-22' },
-    { id: 'P002', name: 'Emily Johnson', email: 'emily.j@example.com', age: 32, gender: 'Female', registrationDate: '2023-11-05', lastVisit: '2024-05-01' },
-    { id: 'P003', name: 'Miguel Rodriguez', email: 'miguel.r@example.com', age: 58, gender: 'Male', registrationDate: '2023-12-18', lastVisit: '2024-04-12' },
-    { id: 'P004', name: 'Sarah Chen', email: 'sarah.c@example.com', age: 27, gender: 'Female', registrationDate: '2024-01-09', lastVisit: '2024-05-10' },
-  ];
-
-  const filteredPatients = patients.filter(patient =>
+  const filteredPatients = patientsreports.filter(patient =>
     patient.name.toLowerCase().includes(searchQuery.toLowerCase()) ||
     patient.id.toLowerCase().includes(searchQuery.toLowerCase())
   );
 
   const handleExport = () => {
-    // Implement export functionality
     console.log('Exporting patient list...');
   };
 

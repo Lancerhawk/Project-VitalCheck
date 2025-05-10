@@ -380,7 +380,7 @@ function DoctorsDashboard() {
                                     <TableCell>{payment.service}</TableCell>
                                     <TableCell>
                                         <span style={{ fontWeight: 'bold', color: '#2e7d32' }}>
-                                            ${payment.amount}
+                                            {payment.amount}rs
                                         </span>
                                     </TableCell>
                                     <TableCell>
@@ -545,7 +545,7 @@ function DoctorsDashboard() {
                             onViewDetails={() => setOpenPaymentModal(true)}
                         >
                             <p>Pending Payments: {payments.filter(p => p.status === 'Due').length}</p>
-                            <p>Total Revenue: ${payments.reduce((sum, p) => sum + (p.status === 'Paid' ? p.amount : 0), 0)}</p>
+                            <p>Total Revenue: {payments.reduce((sum, p) => sum + (p.status === 'Paid' ? p.amount : 0), 0)}rs</p>
                         </InfoCard>
 
                         <InfoCard 

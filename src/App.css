@@ -12,6 +12,7 @@
   --shadow-color: rgba(51, 65, 85, 0.1);
   --hover-bg: #f1f5f9;
   --login-container: #efffffe0;
+  --main-card-bg: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
 }
 
 :root[data-theme="dark"] {

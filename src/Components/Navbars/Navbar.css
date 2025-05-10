@@ -103,6 +103,21 @@
   gap: 1rem;
 }
 
+.user-icon {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: var(--text-color);
+  cursor: pointer;
+  padding: 0.5rem;
+  border-radius: 50%;
+  transition: background-color 0.3s ease;
+}
+
+.user-icon:hover {
+  background-color: var(--hover-color);
+}
+
 .nav-actions .btn {
   text-align: center;
   transition: all 0.3s ease;

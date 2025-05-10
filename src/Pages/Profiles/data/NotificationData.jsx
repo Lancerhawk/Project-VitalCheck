@@ -6,49 +6,49 @@ export const notifications = [
     {
         id: 1,
         type: 'appointment',
-        message: 'New appointment scheduled with John Doe',
+        message: 'New appointment scheduled with Tester',
         time: '10 minutes ago',
         icon: EventIcon
     },
     {
         id: 2,
         type: 'payment',
-        message: 'Payment received from Sarah Williams',
+        message: 'Payment received from Tester',
         time: '30 minutes ago',
         icon: PaymentIcon
     },
     {
         id: 3,
         type: 'medical',
-        message: 'Updated medical records for Mike Johnson',
+        message: 'Updated medical records for Tester',
         time: '1 hour ago',
         icon: MedicalServicesIcon
     },
     {
         id: 4,
         type: 'appointment',
-        message: 'Appointment rescheduled with Jane Smith',
+        message: 'Appointment rescheduled with Tester',
         time: '2 hours ago',
         icon: EventIcon
     },
     {
         id: 5,
         type: 'medical',
-        message: 'New test results available for Robert Brown',
+        message: 'New test results available for Tester',
         time: '3 hours ago',
         icon: MedicalServicesIcon
     },
     {
         id: 6,
         type: 'medical',
-        message: 'New test results available for Robert Brown',
+        message: 'New test results available for Tester',
         time: '3 hours ago',
         icon: MedicalServicesIcon
     },
     {
         id: 7,
         type: 'medical',
-        message: 'New test results available for Robert Brown',
+        message: 'New test results available for Tester',
         time: '3 hours ago',
         icon: MedicalServicesIcon
     }

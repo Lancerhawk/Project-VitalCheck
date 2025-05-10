@@ -11,7 +11,6 @@ import { notifications, getNotificationColor } from '../../../data/NotificationD
 
 function NotificationsCard() {
     const navigate = useNavigate();
-    // Get the 5 most recent notifications
     const recentNotifications = notifications.slice(0, 5);
 
     return (

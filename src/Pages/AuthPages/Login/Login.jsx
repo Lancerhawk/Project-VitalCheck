@@ -27,11 +27,8 @@ function Login() {
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        // Handle login logic here
         console.log('Login attempt:', formData);
-        // Set user role in context
         setUserRole(formData.role);
-        // Navigate to role-specific dashboard
         navigate(`/dashboard/${formData.role}dashboard`);
     };
 
@@ -43,7 +40,7 @@ function Login() {
                     <p>Welcome back to your healthcare dashboard</p>
                 </div>
                 <form onSubmit={handleSubmit} className='login-form'>
-                    <div className='form-group'>
+                    <div className='form-group-login'>
                         <label htmlFor='email'>Email</label>
                         <input
                             type='email'
@@ -55,7 +52,7 @@ function Login() {
                             required
                         />
                     </div>
-                    <div className='form-group'>
+                    <div className='form-group-login'>
                         <label htmlFor='password'>Password</label>
                         <input
                             type={showPassword ? 'text' : 'password'}
@@ -74,7 +71,7 @@ function Login() {
                             {showPassword ? <FaEyeSlash /> : <FaEye />}
                         </button>
                     </div>
-                    <div className='form-group'>
+                    <div className='form-group-signup'>
                         <label htmlFor='role'>Role</label>
                         <select
                             id='role'
@@ -87,8 +84,8 @@ function Login() {
                             <option value='' disabled>Choose your role</option>
                             <option value='doctor'>Doctor</option>
                             <option value='patient'>Patient</option>
-                            <option value='learner'>Learner</option>
-                            <option value='personal'>Individual</option>
+                            <option value='learner'>Learning</option>
+                            <option value='personal'>Personal</option>
                         </select>
                     </div>
                     <div className='form-options'>
