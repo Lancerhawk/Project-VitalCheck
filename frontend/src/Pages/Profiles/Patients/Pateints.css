@@ -1,0 +1,78 @@
+.patients {
+    margin-top: 4rem;
+    padding: 0 2rem;
+}
+
+@media (max-width: 768px) {
+    .patients {
+        margin-top: 5rem;
+    }
+}
+
+.patients .MuiGrid-container {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    margin: 0 auto;
+    max-width: 1600px;
+}
+
+.patients .MuiCard-root {
+    transition: transform 0.2s ease-in-out;
+    height: 100%;
+    /* background-color: var(--card-b; */
+    display: flex;
+    padding-top: 10px;
+    padding-right: 10px;
+    padding-left: 10px;
+    border-radius: 10px;
+    flex-direction: column;
+}
+
+.patients .MuiCard-root:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.1);;
+}
+
+.patients .MuiCardContent-root {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.heading{
+    color: black!important;
+}
+
+.patients .MuiButton-root {
+    margin-top: auto;
+}
+
+.patients .MuiTypography-root {
+    margin-bottom: 8px;
+    color: #000000;
+}
+
+/* Modal Styles */
+.patients .MuiModal-root .MuiPaper-root {
+    margin-bottom: 16px;
+}
+
+.patients .MuiModal-root .MuiTypography-root {
+    color: #000000!important;
+}
+
+.patients .MuiTableContainer-root {
+    margin-bottom: 24px;
+}
+
+.patients .MuiTableCell-root {
+    color: #000000!important;
+}
+
+.patients .MuiTableCell-head {
+    font-weight: bold;
+    background-color: #f5f5f5;
+    color: #000000!important;
+}

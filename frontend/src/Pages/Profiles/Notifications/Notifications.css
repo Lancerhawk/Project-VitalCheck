@@ -1,0 +1,35 @@
+.notifications {
+    padding: 24px;
+    max-width: 1600px;
+    /* margin: 0 auto; */
+    margin-top: 4rem;
+    margin-bottom: 0;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.heading-noti>h2{
+  margin: 0;
+  color: var(--primary-color);
+  text-align: center;
+  font-size: 2.2rem;
+}
+
+.notifications .MuiPaper-root {
+    border-radius: 8px;
+    box-shadow: 0 1px 3px rgba(0, 0, 0, 0.1);
+}
+
+.notifications .MuiListItem-root {
+    padding: 16px;
+}
+
+.notifications .MuiAvatar-root {
+    width: 40px;
+    height: 40px;
+}
+
+.notifications .MuiListItemText-root {
+    margin-left: 16px;
+    margin-right: 48px;
+}

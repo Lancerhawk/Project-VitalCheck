@@ -1,0 +1,74 @@
+:root[data-theme="light"] {
+  --primary-color: #2563eb;
+  --secondary-color: #3b82f6;
+  --accent-color: #10b981;
+  /* --background-color: #f8fafc; */
+  --background-color: #afdde5;
+  /* --text-color: #1e293b; */
+  --text-color: rgb(0, 0, 0);
+  --nav-text-color: white;
+  --card-text-color: black;
+  --nav-bg: #024950;
+  /* --nav-bg: #ffffff; */
+  --card-bg: linear-gradient(145deg, #ffffff, #f1f5f9);
+  --border-color: #e2e8f0;
+  --box-shadow-card: 0 4px 6px rgba(0, 0, 0, 0.1);
+  --card-border: 0.2px solid rgba(0, 0, 0, 0.188);
+  --shadow-color: rgba(51, 65, 85, 0.1);
+  --hover-bg: #f1f5f9;
+  --login-container: #efffffe0;
+  --main-card-bg: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+}
+
+:root[data-theme="dark"] {
+  --primary-color: #9b6dff;
+  --secondary-color: #2c3e50;
+  --accent-color: #f5e6d3;
+  --background-color: #1a1a2e;
+  --text-color: #ffffff;
+  --card-text-color: black;
+  --nav-bg: #2d2d42;
+  --card-bg: #2c3e50;
+  --border-color: #3d3d56;
+  --login-container: white;
+}
+
+:root{
+  font-family: 'Poppins', sans-serif;
+}
+
+* {
+  padding: 0;
+  margin: 0;
+  box-sizing: border-box;
+}
+
+body {
+  background-color: var(--background-color);
+  color: var(--text-color);
+  transition: all 0.3s ease;
+}
+
+.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1rem;
+}
+
+.btn {
+  padding: 0.5rem 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.btn-primary {
+  background-color: var(--primary-color);
+  color: white;
+}
+
+.btn-secondary {
+  background-color: var(--secondary-color);
+  color: white;
+}

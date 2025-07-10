@@ -1,0 +1,421 @@
+.dashboard-container {
+    display: grid;
+    grid-template-columns: 1fr 350px;
+    gap: 1rem;
+    max-width: 1600px;
+    margin-left: auto;
+    margin-right: auto;
+    margin-top: 4rem;
+    margin-bottom: 0;
+    position: relative;
+}
+
+.dashboard-left {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+}
+
+.info-cards-section {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 1.5rem;
+}
+
+.dashboard-cards-section {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+}
+
+@media (max-width: 1200px) {
+    .dashboard-cards-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 1024px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+        gap: 1.5rem;
+        padding: 1.5rem;
+    }
+}
+
+@media (max-width: 768px) {
+    .info-cards-section {
+        grid-template-columns: 1fr;
+    }
+}
+
+.dashboard-right {
+    position: sticky;
+    top: 2rem;
+    height: calc(100vh - 4rem);
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-right {
+        position: static;
+        height: auto;
+        margin-top: 1rem;
+    }
+}
+
+.info-card {
+    background: linear-gradient(135deg, #ffffff 0%, #f8f9fa 100%);
+    border-radius: 16px;
+    text-align: left;
+    padding: 1.5rem;
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+    height: fit-content;
+    border: 1px solid rgba(0, 0, 0, 0.05);
+    position: relative;
+    overflow: hidden;
+}
+
+.react-calendar{
+    color: black;
+}
+
+.info-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.12);
+    border-color: rgba(0, 123, 255, 0.2);
+}
+
+.info-card::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 4px;
+    background: linear-gradient(90deg, #007bff, #00bcd4);
+}
+
+.info-card-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 48px;
+    height: 48px;
+    background: linear-gradient(135deg, rgba(0, 123, 255, 0.1) 0%, rgba(0, 189, 212, 0.1) 100%);
+    border-radius: 12px;
+    margin-bottom: 1.25rem;
+    color: #007bff;
+    font-size: 1.5rem;
+}
+
+.info-card h3 {
+    margin: 0 0 0.75rem 0;
+    color: #2d3748;
+    font-size: 1.25rem;
+    font-weight: 600;
+    letter-spacing: -0.5px;
+}
+
+.card-content {
+    margin-bottom: 1.25rem;
+}
+
+.card-content p {
+    margin: 0.5rem 0;
+    color: #4a5568;
+    font-size: 0.95rem;
+    line-height: 1.5;
+}
+
+.view-details-btn {
+    background: linear-gradient(135deg, #007bff 0%, #0056b3 100%);
+    color: white;
+    border: none;
+    padding: 0.75rem 1.25rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-weight: 500;
+    font-size: 0.9rem;
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.view-details-btn:hover {
+    background: linear-gradient(135deg, #0056b3 0%, #004094 100%);
+    transform: translateY(-2px);
+    box-shadow: 0 4px 8px rgba(0, 123, 255, 0.3);
+}
+
+.view-details-btn:active {
+    transform: translateY(0);
+    box-shadow: 0 2px 4px rgba(0, 123, 255, 0.2);
+}
+
+.calendar-section {
+    background: white;
+    position: fixed;
+    border-radius: 10px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    width: 100%;
+    max-width: 350px;
+    margin-left: auto;
+    z-index: 100;
+}
+
+@media (max-width: 1024px) {
+    .calendar-section {
+        max-width: none;
+        margin: 0;
+        position: relative;
+    }
+
+    .react-calendar {
+        font-size: 0.8rem;
+        padding: 0.3rem;
+    }
+
+    .react-calendar button {
+        padding: 0.5rem;
+        font-size: 0.8rem;
+    }
+
+    .appointments-list {
+        padding: 0.5rem;
+        max-height: 200px;
+    }
+
+    .modal-content {
+        padding: 1rem;
+    }
+
+    .MuiModal-root .MuiBox-root {
+        width: 95% !important;
+        padding: 1rem !important;
+    }
+
+    .MuiModal-root h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+}
+
+.react-calendar {
+    width: 100% !important;
+    border: none !important;
+    background: transparent !important;
+    padding: 0.5rem;
+    font-family: 'Arial', sans-serif;
+    font-size: 0.9rem;
+}
+
+.react-calendar button {
+    padding: 1rem;
+    border-radius: 5px;
+    transition: all 0.2s;
+}
+
+.react-calendar button:hover {
+    background-color: #f0f7ff !important;
+}
+
+.has-appointments {
+    background-color: #e6f3ff !important;
+    color: #007bff !important;
+    font-weight: bold;
+}
+
+.appointments-list {
+    margin-top: 0.5rem;
+    background: #f8f9fa;
+    border-radius: 0;
+    padding: 0.75rem;
+    flex: 1;
+    overflow-y: auto;
+    max-height: 260px;
+    border-top: 1px solid #e2e8f0;
+}
+
+.appointments-list h3 {
+    color: #2c3e50;
+    margin-bottom: 1rem;
+    font-size: 1.2rem;
+}
+
+.dashboard-card {
+    background: white;
+    border-radius: 12px;
+    padding: 1.5rem;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+    margin-bottom: 1.5rem;
+    position: relative;
+}
+
+.dashboard-card h2 {
+    color: #2d3748;
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    display: flex;
+    align-items: center;
+}
+
+@media (max-width: 768px) {
+    .dashboard-card h2 {
+        font-size: 1.2rem;
+        margin-bottom: 1rem;
+    }
+    .dashboard-card {
+        padding: 1rem;
+    }
+    .MuiTableCell-root {
+        padding: 8px;
+        font-size: 0.8rem;
+    }
+    .MuiButton-root {
+        font-size: 0.8rem;
+        padding: 4px 8px;
+    }
+    .info-card h3 {
+        font-size: 1rem;
+    }
+    .info-card .card-content {
+        font-size: 0.9rem;
+    }
+    .view-details-btn {
+        font-size: 0.8rem;
+        padding: 6px 12px;
+    }
+}
+
+.all-patients-card,
+.notifications-card {
+    width: 100%;
+    margin-bottom: 1.5rem;
+    max-height: 500px;
+    overflow-y: auto;
+    scrollbar-width: thin;
+    scrollbar-color: rgba(0, 0, 0, 0.2) transparent;
+}
+
+.all-patients-card::-webkit-scrollbar,
+.notifications-card::-webkit-scrollbar {
+    width: 6px;
+}
+
+.all-patients-card::-webkit-scrollbar-track,
+.notifications-card::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.all-patients-card::-webkit-scrollbar-thumb,
+.notifications-card::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 3px;
+}
+
+@media (max-width: 768px) {
+    .all-patients-card,
+    .notifications-card {
+        max-height: 400px;
+    }
+}
+
+.dashboard-cards-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    margin-top: 2rem;
+}
+
+.appointment-item {
+    padding: 0.75rem;
+    border-radius: 6px;
+    background: white;
+    margin-bottom: 0.5rem;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.05);
+    transition: all 0.2s;
+    display: grid;
+    grid-template-columns: auto 1fr;
+    gap: 0.75rem;
+    align-items: center;
+}
+
+.appointment-item:hover {
+    transform: translateX(5px);
+}
+
+.appointment-item:last-child {
+    margin-bottom: 0;
+}
+
+.appointment-item p {
+    margin: 0;
+    color: #4a5568;
+    font-size: 0.85rem;
+    line-height: 1.4;
+}
+
+.appointment-time {
+    font-weight: 600;
+    color: #2d3748;
+    font-size: 0.9rem;
+    white-space: nowrap;
+}
+
+.appointment-status {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    border-radius: 12px;
+    font-size: 0.75rem;
+    font-weight: 500;
+    margin-top: 0.25rem;
+}
+
+.status-scheduled {
+    background-color: #ebf8ff;
+    color: #3182ce;
+}
+
+.status-in-progress {
+    background-color: #faf5ff;
+    color: #805ad5;
+}
+
+.status-completed {
+    background-color: #f0fff4;
+    color: #38a169;
+}
+
+.appointment-details {
+    display: flex;
+    flex-direction: column;
+    gap: 0.25rem;
+}
+
+.patient-name {
+    font-weight: 500;
+    color: #1a202c;
+}
+
+@media (max-width: 1024px) {
+    .dashboard-container {
+        grid-template-columns: 1fr;
+    }
+
+    .dashboard-right {
+        position: relative;
+        top: 0;
+        height: auto;
+        margin-top: 2rem;
+    }
+
+    .appointments-list {
+        max-height: 400px;
+    }
+}

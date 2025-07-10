@@ -1,0 +1,17 @@
+.Dashboard-Container {
+    margin-left: 95px;
+    min-height: 100vh;
+    padding: 2rem 0.5rem;
+    transition: margin-left 0.3s ease;
+}
+
+.sidebar.collapsed + .Dashboard-Container {
+    margin-left: 80px;
+}
+
+@media (max-width: 668px) {
+    .Dashboard-Container{
+        padding: 0;
+        margin-left: 70px;
+    }
+}
